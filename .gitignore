@@ -1,0 +1,5 @@
+build
+dist
+pangu_task.egg-info
+.idea
+.DS_Store
