@@ -1,5 +1,5 @@
 # PIP URL
-https://pypi.org/manage/project/pangu-task
+https://pypi.org/manage/project/pangu-task/releases/
 
 # Description
 It's a pip package which decorate method to have route or sync features.
