@@ -13,7 +13,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="pangu-task",
-    version="0.5.0",
+    version="0.6.0",
     keywords=("pip", "python", "pangu", "job",  "task"),
     description="Asynchronously run function with callback",
     long_description="Asynchronously run function with callback",

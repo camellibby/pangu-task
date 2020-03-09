@@ -15,10 +15,15 @@ class Proxy:
         if self.init:
             self.init()
 
-        self.original_method(*args, **kwargs)
+        result = self.original_method(*args, **kwargs)
 
         if self.callback:
-            self.callback()
+            if self.callback.__code__.co_argcount == 1:
+                self.callback(result)
+            else:
+                self.callback()
+
+        return result
 
     def delay(self, *args, **kwargs):
         t = threading.Thread(target=self.__new_method, args=args, kwargs=kwargs)

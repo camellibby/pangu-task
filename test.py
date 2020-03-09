@@ -7,8 +7,9 @@ def init():
     print('init event!')
 
 
-def callback():
+def callback(result):
     print('callback event!')
+    print("return value {0}".format(result))
 
 
 @task(init=init, callback=callback)
@@ -20,6 +21,7 @@ def click1(a, b):
         i = i + 1
         time.sleep(1)
     print("click1 function with ({0},{1}) finished".format(a, b))
+    return 1
 
 
 @task(init=init, callback=callback)
@@ -31,10 +33,13 @@ def click2(a, b):
         i = i + 1
         time.sleep(1)
     print("click2 function with ({0},{1}) finished".format(a, b))
+    return 1
 
 
 print("click1 is starting")
-click1.delay(1, 2)
+x1 = click1.delay(1, 2)
+print("click1 return value {0}".format(x1))
 print("click2 is starting")
-click2(3, 4)
+x2 = click2(3, 4)
+print("click2 return value {0}".format(x2))
 print("all done")
