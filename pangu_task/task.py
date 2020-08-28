@@ -27,6 +27,7 @@ class Proxy:
 
     def delay(self, *args, **kwargs):
         t = threading.Thread(target=self.__new_method, args=args, kwargs=kwargs)
+        t.daemon = True
         t.start()
 
     def execute(self, *args, **kwargs):

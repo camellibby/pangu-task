@@ -51,6 +51,7 @@ class Proxy:
     def delay(self, *args, **kwargs):
         try:
             t = threading.Thread(target=self.__new_method, args=args, kwargs=kwargs)
+            t.daemon = True
             t.start()
         except Exception as e:
             return R.fail(description=str(e))
